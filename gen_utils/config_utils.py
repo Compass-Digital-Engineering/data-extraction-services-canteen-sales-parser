@@ -69,8 +69,6 @@ def parse_system_config(config: Dict[str, Any]) -> Dict[str, Any]:
     gcp_folder_path = config.get("gcp_folder_path", "AIProductMapper/matching")
     size_filter_on = config.get("size_filter_on", False)
     data_load_method = config.get("data_load_method", "snowflake")
-    skip_abb_conversion = config.get("skip_abb_conversion", False)
-    abb_path = config.get("abb_path", "AIProductMapper/abbreviations/abb_matches_initials.csv")
 
     base_intermediate_path = f"AIProductMapper/intermediate-outputs/{run_name}_{sub_run_name}_{source_type}"
     inference_df_path = f"{base_intermediate_path}/{sub_run_name}_{source_type}_inference_df.csv"
@@ -80,7 +78,7 @@ def parse_system_config(config: Dict[str, Any]) -> Dict[str, Any]:
     gcp_aligned_final_path = f"{base_intermediate_path}/{sub_run_name}_{source_type}_aligned_final.csv"
     post_cross_reference_df_path = f"{base_intermediate_path}/{sub_run_name}_{source_type}_post_cross_reference_df.csv"
     pure_ai_match_df_path = f"{base_intermediate_path}/{sub_run_name}_{source_type}_pure_ai_match_df.csv"
-
+    
 
     # Merge original config with derived values.
     new_config: Dict[str, Any] = dict(config)
@@ -98,8 +96,6 @@ def parse_system_config(config: Dict[str, Any]) -> Dict[str, Any]:
         "gcp_folder_path": gcp_folder_path,
         "intermediate_filepath": intermediate_filepath,
         "data_load_method": data_load_method,
-        "skip_abb_conversion":skip_abb_conversion,
-        "abb_path":abb_path,
         "final_path": final_path,
         "inference_df_path": inference_df_path,
         "post_inference_df_path": post_inference_df_path,

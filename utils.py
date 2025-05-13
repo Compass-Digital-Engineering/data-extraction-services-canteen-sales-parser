@@ -573,31 +573,6 @@ def clean_text(text: str) -> str:
     text = re.sub(r'[^\w\s./%-]', '', text)         # remove special characters (customizable)
     return text
 
-def convert_abb(text: str, abbreviation_dict: dict,skip_abb_conversion: bool) -> str:
-    """ 
-    Function to convert abbreviation to full word.
-    Args:
-        text: str: text data to be converted
-        abbreviation_dict: dict: conversion dictionary 
-        skip_abb_conversion: bool: if set to Ture, skip the conversion
-    Returns:
-        text: str: converted source name
-    """
-    # Sort abbreviations by length in descending order to match longer abbreviations first
-    if skip_abb_conversion:
-        return text
-
-    words = text.split()
-    expanded_words = []
-    for word in words:
-        key = word.upper()  # or word.lower()
-        if key in abbreviation_dict:
-            expanded_words.append(f"{word} {abbreviation_dict[key]}")
-        else:
-            expanded_words.append(word)
-
-    return ' '.join(expanded_words)
-
 def setup_logger(
     name: str = "app_logger",
     log_file: str = "logging/app.log",

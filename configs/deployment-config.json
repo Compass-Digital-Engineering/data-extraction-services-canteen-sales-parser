@@ -13,7 +13,7 @@
     "skip_fuzzy_matching":false,
     "skip_subattribution":false,
     "skip_hybrid_retrieval":false,
-    "data_load_method": "snowflake",
+    "data_load_method": "GCS",
     "size_filter_on":false,
     "source_data_gcp_path":"AIProductMapper/example-snowflake/full_data/minimal-tests/jde-test-10-apr-24-2025.csv",
     "metadata": {
